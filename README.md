@@ -1,8 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Tech Stack
 
-## Getting Started
+| Name                                                                    | Purpose        | Description                    |
+| ----------------------------------------------------------------------- | -------------- | ------------------------------ |
+| [next.js](https://nextjs.org/)                                          | Framework      | React framework for production |
+| [next-Auth](https://next-auth.js.org/)                                  | Authentication | Authentication for Next.js     |
+| [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)              | JWT            | JWT for authentication         |
+| [firebase](https://firebase.google.com/)                                | Database       | Database for images            |
+| [prisma](https://www.prisma.io/)                                        | ORM            | ORM for database               |
+| [MySQL](https://www.mysql.com/)                                         | Database       | Database for users             |
+| [Tailwind CSS](https://tailwindcss.com/)                                | Styling        | CSS framework for styling      |
+| [react-toastify](https://fkhadra.github.io/react-toastify/introduction) | Toasts         | Toasts for notifications       |
+| [react-icons](https://react-icons.github.io/react-icons/)               | Icons          | Icons for UI                   |
+| [@emailjs/browser](https://www.emailjs.com/)                            | Email          | Email service                  |
 
-First, run the development server:
+## Models
+
+## Installation
+
+### Dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### MySQL
+
+- first ensure that the mysql80 service is running
+- then enter your password in the mysql command line client
+- then connect to the server in the mysql shell using `\connect root@localhost`
+- now in sql mode to create the database run `create database <database_name>;`
+- now to use the database run `use <database_name>;`
+- the url for the database is `mysql://root:<password>@localhost:3306/<database_name>`
+
+### Prisma
+
+To see the CLI documentation [click here](https://www.prisma.io/docs/concepts/components/prisma-cli/commands#prisma-migrate-dev)
+
+In the `/src` directory, run the following commands:
+
+```bash
+npx prisma init
+
+# after defining the schema.prisma file, run the following command:
+
+npx prisma migrate dev --name init
+
+# To view the database in the prisma studio, run the following command:
+npx prisma studio
+
+# to generate the prisma client, after installing @prisma/client, run the following command:
+npx prisma generate
+```
+
+## Start the development server
 
 ```bash
 npm run dev
@@ -13,24 +67,3 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

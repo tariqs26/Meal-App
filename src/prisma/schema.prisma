@@ -1,0 +1,29 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Meal {
+  id        Int      @id @default(autoincrement())
+  title     String
+  desc      String
+  price     Float
+  Image     String
+  category  Category
+  Featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Category {
+  PIZZA
+  SPAGHETTI
+  VEGETARIAN
+  BREAD
+  GYROS
+  BURGER
+}
